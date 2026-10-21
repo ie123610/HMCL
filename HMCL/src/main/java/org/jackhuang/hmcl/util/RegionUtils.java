@@ -43,7 +43,11 @@ public final class RegionUtils {
         Schedulers.io().execute(RegionUtils::isIsChinaMainlandNetwork);
     }
 
-    private static final boolean IS_CHINA_MAINLAND_MACHINE = checkMachineIsChinaMainland();
+    /// Whether the current machine is located in Mainland China.
+    ///
+    /// Region detection is disabled, so this is always `false`; change it back to
+    /// `checkMachineIsChinaMainland()` to restore the detection.
+    private static final boolean IS_CHINA_MAINLAND_MACHINE = false;
 
     private static boolean checkMachineIsChinaMainland() {
         if ("Asia/Shanghai".equals(ZoneId.systemDefault().getId()))
@@ -68,9 +72,9 @@ public final class RegionUtils {
 
     /// Returns whether the current machine is located in Mainland China.
     ///
-    /// Region detection is currently disabled, so this always returns `false`.
+    /// Always `false` while region detection is disabled.
     public static boolean isIsChinaMainlandMachine() {
-        return false;
+        return IS_CHINA_MAINLAND_MACHINE;
     }
 
     private static volatile @Nullable Boolean isChinaMainlandNetwork;

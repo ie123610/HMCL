@@ -66,11 +66,8 @@ public final class RegionUtils {
         return false;
     }
 
-    /// Returns whether the current machine is located in Mainland China.
-    ///
-    /// Region detection is currently disabled, so this always returns `false`.
     public static boolean isIsChinaMainlandMachine() {
-        return false;
+        return IS_CHINA_MAINLAND_MACHINE;
     }
 
     private static volatile @Nullable Boolean isChinaMainlandNetwork;
